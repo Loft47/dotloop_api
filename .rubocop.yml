@@ -26,8 +26,13 @@ AllCops:
     - 'dotloop.gemspec'
 Documentation:
   Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
 Metrics/LineLength:
   Max: 120
+  Exclude:
+    - 'spec/**/*.rb'
   AllowURI: true
   URISchemes:
     - http
@@ -43,3 +48,5 @@ Style/Alias:
   EnforcedStyle: prefer_alias_method
 Style/MethodName:
   Enabled: false
+Layout/EmptyLineAfterGuardClause:
+  Enabled: False

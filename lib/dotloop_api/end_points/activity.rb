@@ -7,7 +7,6 @@ module DotloopApi
       undef_method :save
       undef_method :create
       undef_method :delete
-      undef_method :single_path
 
       def initialize(client:, profile_id: nil, loop_id: nil)
         @profile_id = profile_id
