@@ -53,7 +53,7 @@ module DotloopApi
       end
 
       def filter_hash
-        (@filter.to_s.split('&').map { |var| var.split('=') }).to_h.slice(FILTER_OPTIONS)
+        (@filter.to_s.split('&').map { |var| var.split('=') }).to_h.slice(*FILTER_OPTIONS)
       end
     end
   end

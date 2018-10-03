@@ -17,6 +17,24 @@ module DotloopApi
       self.class.snakify(response)
     end
 
+    def patch(page, model)
+      response = self.class.patch(page, query: model.attributes, headers: headers, timeout: 60)
+      handle_dotloop_error(response.code) if response.code != 200
+      self.class.snakify(response.parsed_response)
+    end
+
+    def post(page, model)
+      response = self.class.post(page, query: model.attributes, headers: headers, timeout: 60)
+      handle_dotloop_error(response.code) if response.code != 200
+      self.class.snakify(response.parsed_response)
+    end
+
+    def delete(page)
+      response = self.class.delete(page, headers: headers, timeout: 60)
+      handle_dotloop_error(response.code) if response.code != 200
+      self.class.snakify(response.parsed_response)
+    end
+
     def raw(page, params = {})
       response = self.class.get(page, query: params, headers: headers, timeout: 60)
       handle_dotloop_error(response.code) if response.code != 200
