@@ -18,6 +18,7 @@ module DotloopApi
         class Folder
           class Document; end
         end
+        class Participant < ::DotloopApi::Models::Contact; end
         class TaskList
           class Task; end
         end

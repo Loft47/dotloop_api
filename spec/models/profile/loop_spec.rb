@@ -35,6 +35,14 @@ describe DotloopApi::Models::Profile::Loop do
     end
   end
 
+  describe '#participants' do
+    it 'finds participants' do
+      expect(DotloopApi::EndPoints::Participant).to receive(:new) { endpoint }
+      expect(endpoint).to receive(:all)
+      subject.participants
+    end
+  end
+
   describe '#task_lists' do
     it 'finds folders' do
       expect(DotloopApi::EndPoints::TaskList).to receive(:new) { endpoint }

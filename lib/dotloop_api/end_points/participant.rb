@@ -13,6 +13,10 @@ module DotloopApi
       def path
         "/profile/#{@profile_id}/loop/#{@loop_id}/participant"
       end
+
+      def build_model(attrs)
+        super(fix_hash(attrs))
+      end
     end
   end
 end

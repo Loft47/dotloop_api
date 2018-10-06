@@ -20,6 +20,8 @@ module DotloopApi
         "/profile/#{@profile_id}/loop/#{@loop_id}/folder"
       end
 
+      private
+
       def options_to_params(options)
         @params = {
           include_documents: options.key?(:include_documents) ? options[:include_documents] : true

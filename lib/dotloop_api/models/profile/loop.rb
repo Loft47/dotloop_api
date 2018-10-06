@@ -42,6 +42,10 @@ module DotloopApi
           ).all(options)
         end
 
+        def participants
+          DotloopApi::EndPoints::Participant.new(client: client, profile_id: profile_id, loop_id: id).all
+        end
+
         def task_lists
           DotloopApi::EndPoints::TaskList.new(client: client, profile_id: profile_id, loop_id: id).all
         end
