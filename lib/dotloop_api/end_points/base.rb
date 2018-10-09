@@ -17,20 +17,16 @@ module DotloopApi
       def save(model)
         return create(model) unless model.id
         response = @client.patch(single_path(model.id), model)
-        handle_error(response)
         build_model(response[:data])
       end
 
       def create(model)
         response = @client.post(path, model)
-        handle_error(response)
         build_model(response[:data])
       end
 
       def delete(model)
-        response = @client.delete(single_path(model.id))
-        handle_error(response)
-        model
+        @client.delete(single_path(model.id))
       end
 
       def single_path(id)

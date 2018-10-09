@@ -16,7 +16,7 @@ module DotloopApi
       end
 
       def path
-        "/profile/#{@profile_id}/loop/#{@loop_id}/tasklist/#{@task_list_id}/task/"
+        "/profile/#{@profile_id}/loop/#{@loop_id}/tasklist/#{@task_list_id}/task"
       end
     end
   end

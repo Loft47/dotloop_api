@@ -3,6 +3,9 @@ module DotloopApi
     class Detail < DotloopApi::EndPoints::Base
       attr_accessor :profile_id
       attr_accessor :loop_id
+      undef_method :all
+      undef_method :create
+      undef_method :delete
       def initialize(client:, profile_id: nil, loop_id: nil)
         @profile_id = profile_id
         @loop_id = loop_id
@@ -18,7 +21,7 @@ module DotloopApi
       end
 
       def build_model(attrs)
-        super(build_details(attrs))
+        super(fix_hash(attrs))
       end
     end
   end

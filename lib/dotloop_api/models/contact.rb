@@ -14,17 +14,20 @@ module DotloopApi
       attribute :address
       attribute :cell_phone
       attribute :city
+      attribute :company_name
       attribute :country
       attribute :email
       attribute :fax
       attribute :first_name
-      attribute :full_name
       attribute :home
       attribute :id, Integer
       attribute :last_name
+      attribute :license_number
       attribute :office
+      attribute :phone
       attribute :role
       attribute :state
+      attribute :state_prov
       attribute :street_name
       attribute :street_number
       attribute :updated, Time

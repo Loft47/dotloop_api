@@ -47,6 +47,7 @@ module DotloopApi
         index
           .to_s
           .delete("'")
+          .gsub('#', 'Number')
           .gsub('%', 'Percent')
           .gsub('$', 'Dollar')
           .downcase
