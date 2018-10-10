@@ -6,7 +6,7 @@ describe DotloopApi::Models::Profile::Loop do
     expect(subject.attributes.keys).to match_array(
       %i[
         completed_task_count created id loop_url name owner_profile_id profile_id status total_task_count
-        transaction_type updated details
+        transaction_type updated details all_participants
       ]
     )
   end

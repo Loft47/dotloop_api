@@ -24,6 +24,7 @@ module DotloopApi
         attribute :transaction_type
         attribute :updated
         attribute :details, DotloopApi::Models::Profile::Loop::Detail
+        attribute :all_participants, Array[DotloopApi::Models::Profile::Loop::Participant]
         attr_accessor :client
 
         def activities
@@ -43,7 +44,9 @@ module DotloopApi
         end
 
         def participants
-          DotloopApi::EndPoints::Participant.new(client: client, profile_id: profile_id, loop_id: id).all
+          @all_participants = DotloopApi::EndPoints::Participant.new(
+            client: client, profile_id: profile_id, loop_id: id
+          ).all
         end
 
         def task_lists
