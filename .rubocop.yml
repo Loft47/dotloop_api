@@ -1,21 +1,5 @@
 AllCops:
   TargetRubyVersion: 2.5
-  Include:
-    - '**/*.gemspec'
-    - '**/*.podspec'
-    - '**/*.jbuilder'
-    - '**/*.rake'
-    - '**/*.opal'
-    - '**/config.ru'
-    - '**/Gemfile'
-    - '**/Rakefile'
-    - '**/Capfile'
-    - '**/Podfile'
-    - '**/Thorfile'
-    - '**/Vagrantfile'
-    - '**/Berksfile'
-    - '**/Cheffile'
-    - '**/Vagabondfile'
   Exclude:
     - '**/Guardfile'
     - 'db/**/*'
@@ -46,7 +30,5 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Style/Alias:
   EnforcedStyle: prefer_alias_method
-Style/MethodName:
-  Enabled: false
 Layout/EmptyLineAfterGuardClause:
   Enabled: False

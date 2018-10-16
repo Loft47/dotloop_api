@@ -9,7 +9,7 @@ module DotloopApi
       attribute :expires_in
       attribute :redirect_on_deny, Boolean, default: true
       attribute :redirect_uri, String
-      attribute :refresh_token, String
+      attribute :refresh_token
       attribute :scope, String
       attribute :state, String
       attribute :token_type, String

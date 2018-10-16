@@ -50,11 +50,11 @@ module DotloopApi
       @account ||= DotloopApi::EndPoints::Account.new(client: self).find
     end
 
-    def Profile
+    def Profile # rubocop:disable Naming/MethodName
       @Profile ||= DotloopApi::EndPoints::Profile.new(client: self) # rubocop:disable Naming/VariableName
     end
 
-    def Contact
+    def Contact # rubocop:disable Naming/MethodName
       @Contact ||= DotloopApi::EndPoints::Contact.new(client: self) # rubocop:disable Naming/VariableName
     end
 
