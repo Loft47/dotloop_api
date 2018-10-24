@@ -16,6 +16,10 @@ module DotloopApi
       def path
         "/profile/#{@profile_id}/loop/#{@loop_id}/folder/#{@folder_id}/document"
       end
+
+      def download(id:)
+        @client.download(single_path(id))
+      end
     end
   end
 end

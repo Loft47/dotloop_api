@@ -10,4 +10,10 @@ describe DotloopApi::Models::Profile::Loop::Detail do
       ]
     )
   end
+
+  it '#save' do
+    expect(DotloopApi::EndPoints::Detail).to receive(:new) { endpoint }
+    expect(endpoint).to receive(:save).with(subject)
+    subject.save
+  end
 end

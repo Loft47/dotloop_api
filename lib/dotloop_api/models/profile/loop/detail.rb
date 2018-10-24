@@ -14,10 +14,12 @@ module DotloopApi
           attribute :property, DotloopApi::Models::Profile::Loop::Detail::Property
           attribute :referral, DotloopApi::Models::Profile::Loop::Detail::Referral
           attr_accessor :client
+          attr_accessor :profile_id
+          attr_accessor :loop_id
 
           def save
             DotloopApi::EndPoints::Detail.new(
-              client: client, profile_id: profile_id, loop_id: id
+              client: client, profile_id: profile_id, loop_id: loop_id
             ).save(self)
           end
 

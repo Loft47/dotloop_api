@@ -41,6 +41,12 @@ module DotloopApi
       response.parsed_response
     end
 
+    def download(page, params = {})
+      response = self.class.get(page, query: params, headers: download_headers, timeout: 360)
+      handle_dotloop_error(response.code) if response.code != 200
+      response.body
+    end
+
     def handle_dotloop_error(code)
       return unless (error_class = DotloopApi::CodeMap.call(code))
       raise error_class.new "Error communicating: Response code #{code}"
@@ -67,6 +73,10 @@ module DotloopApi
     end
 
     private
+
+    def download_headers
+      headers.merge('Accept' => 'application/pdf')
+    end
 
     def headers
       {

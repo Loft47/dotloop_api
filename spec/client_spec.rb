@@ -14,10 +14,43 @@ describe DotloopApi::Client do
     it { expect(subject.access_token).to eq access_token }
     it { expect(subject).to be_a described_class }
   end
-  describe '#get'
-  describe '#patch'
-  describe '#post'
-  describe '#delete'
+  describe '#get' do
+    it 'calls raw and snakifies the result' do
+      expect(subject).to receive(:raw) { parsed_response }
+      expect(subject.get('/endpoint')).to eq parsed_response
+    end
+  end
+
+  it '#patch' do
+    expect(described_class).to receive(:patch) { response }
+    expect(subject.patch('/endpoint', account)).to eq parsed_response
+  end
+
+  it '#post' do
+    expect(described_class).to receive(:post) { response }
+    expect(subject.post('/endpoint', account)).to eq parsed_response
+  end
+
+  it '#delete' do
+    expect(described_class).to receive(:delete) { response }
+    expect(subject.delete('/endpoint')).to eq parsed_response
+  end
+
+  context 'pdf download' do
+    let(:response) { double(code: 200, body: :binary_string) }
+    let(:headers) do
+      { 'Accept' => 'application/pdf', 'Authorization' => "Bearer #{access_token}", 'User-Agent' => 'dotloop' }
+    end
+    it '#download' do
+      expect(described_class).to receive(:get).with(
+        '/endpoint',
+        query: {},
+        headers: headers,
+        timeout: 360
+      ).and_return(response)
+      expect(subject.download('/endpoint')).to eq :binary_string
+    end
+  end
 
   describe '#raw' do
     context 'error' do
@@ -50,4 +83,13 @@ describe DotloopApi::Client do
 
   it { expect(subject.Profile).to be_a DotloopApi::EndPoints::Profile }
   it { expect(subject.Contact).to be_a DotloopApi::EndPoints::Contact }
+
+  context 'snakify array' do
+    let(:parsed_response) { [{ fooBar: 10 }, { snakeCase: 22 }] }
+    it 'snake_cases' do
+      expect(described_class.snakify(parsed_response)).to eq(
+        [{ foo_bar: 10 }, { snake_case: 22 }]
+      )
+    end
+  end
 end
