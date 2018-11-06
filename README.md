@@ -59,7 +59,6 @@ Optional parameters are prefixed with a __'*'__'
     myloop.folders  #=> get loop folders
     myloop.folders.last.documents #=> get folder documents
 
-    mydoc.get                                                               #=> get a PDF document
 ```
 
 ## Development
