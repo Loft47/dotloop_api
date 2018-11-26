@@ -4,25 +4,6 @@ module DotloopApi
       class Loop
         class Detail
           include Virtus.model
-          attribute :contract_dates, DotloopApi::Models::Profile::Loop::Detail::ContractDates
-          attribute :contract_info, DotloopApi::Models::Profile::Loop::Detail::ContractInfo
-          attribute :financials, DotloopApi::Models::Profile::Loop::Detail::Financials
-          attribute :geographic_description, DotloopApi::Models::Profile::Loop::Detail::GeographicDescription
-          attribute :listing_information, DotloopApi::Models::Profile::Loop::Detail::ListingInformation
-          attribute :offer_dates, DotloopApi::Models::Profile::Loop::Detail::OfferDates
-          attribute :property_address, DotloopApi::Models::Profile::Loop::Detail::PropertyAddress
-          attribute :property, DotloopApi::Models::Profile::Loop::Detail::Property
-          attribute :referral, DotloopApi::Models::Profile::Loop::Detail::Referral
-          attr_accessor :client
-          attr_accessor :profile_id
-          attr_accessor :loop_id
-
-          def save
-            DotloopApi::EndPoints::Detail.new(
-              client: client, profile_id: profile_id, loop_id: loop_id
-            ).save(self)
-          end
-
           class ContractDates
             include Virtus.model
             attribute :contract_agreement_date
@@ -121,6 +102,25 @@ module DotloopApi
             include Virtus.model
             attribute :referral_source
             attribute :referral_percentage
+          end
+
+          attribute :contract_dates, DotloopApi::Models::Profile::Loop::Detail::ContractDates
+          attribute :contract_info, DotloopApi::Models::Profile::Loop::Detail::ContractInfo
+          attribute :financials, DotloopApi::Models::Profile::Loop::Detail::Financials
+          attribute :geographic_description, DotloopApi::Models::Profile::Loop::Detail::GeographicDescription
+          attribute :listing_information, DotloopApi::Models::Profile::Loop::Detail::ListingInformation
+          attribute :offer_dates, DotloopApi::Models::Profile::Loop::Detail::OfferDates
+          attribute :property_address, DotloopApi::Models::Profile::Loop::Detail::PropertyAddress
+          attribute :property, DotloopApi::Models::Profile::Loop::Detail::Property
+          attribute :referral, DotloopApi::Models::Profile::Loop::Detail::Referral
+          attr_accessor :client
+          attr_accessor :profile_id
+          attr_accessor :loop_id
+
+          def save
+            DotloopApi::EndPoints::Detail.new(
+              client: client, profile_id: profile_id, loop_id: loop_id
+            ).save(self)
           end
         end
       end

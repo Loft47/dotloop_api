@@ -19,6 +19,7 @@ module DotloopApi
       attribute :email
       attribute :fax
       attribute :first_name
+      attribute :full_name
       attribute :home
       attribute :id, Integer
       attribute :last_name
