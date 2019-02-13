@@ -53,6 +53,7 @@ module DotloopApi
       end
 
       def filter_string
+        return unless @filter
         @filter.map { |key, value| filter_pair(key, value) }.compact.join(',')
       end
 
