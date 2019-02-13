@@ -12,14 +12,16 @@ describe DotloopApi::EndPoints::ParamHelper do
   end
 
   describe 'filter' do
-    it 'only allows specific filters' do
-      filter_string = 'transaction_type=PURCHASE_OFFER&other=123&transaction_status=PRE_OFFER|PRE_LISTING'
-      expect(params(filter: filter_string)).to include(
-        filter: {
-          'transaction_type' => 'PURCHASE_OFFER',
-          'transaction_status' => 'PRE_OFFER|PRE_LISTING'
-        }
-      )
+    it 'strigfies a given hash' do
+      filter_hash = { transaction_type: 'PURCHASE_OFFER', transaction_status: 'ARCHIVED' }
+      filter_string = 'transaction_type=PURCHASE_OFFER,transaction_status=ARCHIVED'
+      expect(params(filter: filter_hash)).to include(filter: filter_string)
+    end
+
+    it 'ignores unknown filters' do
+      filter_hash = { transaction_type: 'PURCHASE_OFFER', random: 123 }
+      filter_string = 'transaction_type=PURCHASE_OFFER'
+      expect(params(filter: filter_hash)[:filter]).to eq(filter_string)
     end
   end
 
