@@ -4,7 +4,7 @@ module DotloopApi
       include Virtus.model
       attribute :batch_number, Integer, default: 1
       attribute :batch_size, Integer, default: 100
-      attribute :filter
+      attribute :filter, Hash
       attribute :include_details, Boolean, default: false
       attribute :sort_key
       attribute :sort_direction, String, default: 'asc'
@@ -18,7 +18,7 @@ module DotloopApi
         {
           batch_number: @batch_number.to_i,
           batch_size: size,
-          filter: filter_hash,
+          filter: filter_string,
           include_details: @include_details,
           sort: sort
         }.delete_if { |_, v| should_delete(v) }
@@ -52,8 +52,14 @@ module DotloopApi
           ((value.is_a?(String) || value.is_a?(Hash)) && value.empty?)
       end
 
-      def filter_hash
-        (@filter.to_s.split('&').map { |var| var.split('=') }).to_h.slice(*FILTER_OPTIONS)
+      def filter_string
+        return unless @filter
+        @filter.map { |key, value| filter_pair(key, value) }.compact.join(',')
+      end
+
+      def filter_pair(key, value)
+        return unless FILTER_OPTIONS.include?(key.to_s)
+        key.to_s + '=' + value.to_s
       end
     end
   end
