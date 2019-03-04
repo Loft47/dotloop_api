@@ -13,8 +13,8 @@ describe DotloopApi::EndPoints::ParamHelper do
 
   describe 'filter' do
     it 'strigfies a given hash' do
-      filter_hash = { transaction_type: 'PURCHASE_OFFER', transaction_status: 'ARCHIVED' }
-      filter_string = 'transaction_type=PURCHASE_OFFER,transaction_status=ARCHIVED'
+      filter_hash = { transaction_type: 'PURCHASE_OFFER', transaction_status: %w[ARCHIVED ACTIVE_LISTING] }
+      filter_string = 'transaction_type=PURCHASE_OFFER,transaction_status=ARCHIVED|ACTIVE_LISTING'
       expect(params(filter: filter_hash)).to include(filter: filter_string)
     end
 
