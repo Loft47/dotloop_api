@@ -6,10 +6,16 @@ module DotloopApi
 
     attr_accessor :access_token
     attr_accessor :application
+    attr_accessor :limit
+    attr_accessor :limit_remaining
+    attr_accessor :limit_reset
 
     def initialize(access_token:, application: 'dotloop')
       @access_token = access_token
       @application = application
+      @limit = 100
+      @limit_remaining = 100
+      @limit_reset = 0
     end
 
     def get(page, params = {})
@@ -19,24 +25,28 @@ module DotloopApi
 
     def patch(page, model)
       response = self.class.patch(page, query: model.attributes, headers: headers, timeout: 60)
+      limits_from_headers(response.headers)
       handle_dotloop_error(response.code) if response.code != 200
       self.class.snakify(response.parsed_response)
     end
 
     def post(page, model)
       response = self.class.post(page, query: model.attributes, headers: headers, timeout: 60)
+      limits_from_headers(response.headers)
       handle_dotloop_error(response.code) if response.code != 200
       self.class.snakify(response.parsed_response)
     end
 
     def delete(page)
       response = self.class.delete(page, headers: headers, timeout: 60)
+      limits_from_headers(response.headers)
       handle_dotloop_error(response.code) if response.code != 200
       self.class.snakify(response.parsed_response)
     end
 
     def raw(page, params = {})
       response = self.class.get(page, query: params, headers: headers, timeout: 60)
+      limits_from_headers(response.headers)
       handle_dotloop_error(response.code) if response.code != 200
       response.parsed_response
     end
@@ -73,6 +83,12 @@ module DotloopApi
     end
 
     private
+
+    def limits_from_headers(headers)
+      @limit = headers['X-RateLimit-Limit']
+      @limit_remaining = headers['X-RateLimit-Remaining']
+      @limit_reset = headers['X-RateLimit-Reset']
+    end
 
     def download_headers
       headers.merge('Accept' => 'application/pdf')
