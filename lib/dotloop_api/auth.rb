@@ -88,7 +88,7 @@ module DotloopApi
     end
 
     def check_state(state)
-      raise DotloopApi::UnmatchState.new('State does ont match. Possible CSRF!') if state && state != @config.state
+      raise DotloopApi::UnmatchState.new('State does not match. Possible CSRF!') if state && state != @config.state
     end
 
     def check_refresh_token
