@@ -22,6 +22,8 @@ module DotloopApi
             attribute :earnest_money_amount
             attribute :earnest_money_held_by
             attribute :purchase_sale_price
+            attribute :rent
+            attribute :rent_commission_amount
             attribute :sale_commission_rate
             attribute :sale_commission_split_dollar_buy_side
             attribute :sale_commission_split_dollar_sell_side
