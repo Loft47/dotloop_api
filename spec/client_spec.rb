@@ -7,7 +7,7 @@ describe DotloopApi::Client do
   let(:response) { double(code: code, parsed_response: parsed_response, headers: rheaders) }
   let(:parsed_response) { { some_key: 'some_value' } }
   let(:account) { DotloopApi::Models::Contact.new }
-  let(:rheaders) { { 'X-RateLimit-Limit' => 100, 'X-RateLimit-Remaining' => 34, 'X-RateLimit-Reset' => 32000 } }
+  let(:rheaders) { { 'X-RateLimit-Limit' => 100, 'X-RateLimit-Remaining' => 34, 'X-RateLimit-Reset' => 32_000 } }
 
   subject { described_class.new(access_token: access_token) }
 
@@ -63,7 +63,7 @@ describe DotloopApi::Client do
         subject.raw('/endpoint')
         expect(subject.limit).to eq 100
         expect(subject.limit_remaining).to eq 34
-        expect(subject.limit_reset).to eq 32000
+        expect(subject.limit_reset).to eq 32_000
       end
     end
     it 'returns data' do
