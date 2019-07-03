@@ -95,9 +95,11 @@ module DotloopApi
             attribute :postal_code
             attribute :property_address_country
             attribute :state_or_province
+            attribute :state_prov
             attribute :street_name
             attribute :street_number
             attribute :unit_number
+            attribute :zip_postal_code
           end
 
           class Referral
