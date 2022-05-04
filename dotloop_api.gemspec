@@ -12,7 +12,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.description   = %(Ruby library for Dotloop API V2.)
   spec.homepage      = %(http://github.com/Loft47/dotloop_api)
   spec.license       = 'MIT'
-  spec.cert_chain    = ['certs/shanedavies.pem']
+  spec.cert_chain    = ['certs/gem-public_cert.pem']
   spec.signing_key   = File.expand_path('~/.ssh/gem-private_key.pem') if $PROGRAM_NAME.end_with?('gem')
   spec.required_ruby_version = '~> 2.7'
 
@@ -32,7 +32,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.add_runtime_dependency 'plissken', '~> 1.2'
   spec.add_runtime_dependency 'simplecov', '~> 0.18'
   spec.add_runtime_dependency 'virtus', '~> 1.0'
-  spec.add_development_dependency 'bundler', '~> 2.2.20'
+  spec.add_development_dependency 'bundler', '~> 2.3.7'
   spec.add_development_dependency 'byebug', '~> 10.0'
   spec.add_development_dependency 'pry', '~> 0.11'
   spec.add_development_dependency 'rake', '~> 12.3'
