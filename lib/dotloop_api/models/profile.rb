@@ -4,6 +4,7 @@ module DotloopApi
       # define nested classes first for dependency resolution
       class Loop
         class Activity; end
+
         class Detail
           class ContractDates; end
           class ContractInfo; end
@@ -15,14 +16,18 @@ module DotloopApi
           class PropertyAddress; end
           class Referral; end
         end
+
         class Folder
           class Document; end
         end
+
         class Participant < ::DotloopApi::Models::Contact; end
+
         class TaskList
           class Task; end
         end
       end
+
       class LoopTemplate; end
 
       PROFILE_TYPES = %w[ASSOCIATION COMPANY INDIVIDUAL NATIONAL_PARTNER OFFICE TEAM].freeze

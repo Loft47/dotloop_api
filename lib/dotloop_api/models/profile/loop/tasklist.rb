@@ -6,9 +6,7 @@ module DotloopApi
           include Virtus.model
           attribute :id, Integer
           attribute :name
-          attr_accessor :client
-          attr_accessor :loop_id
-          attr_accessor :profile_id
+          attr_accessor :client, :loop_id, :profile_id
 
           def tasks
             DotloopApi::EndPoints::Task.new(

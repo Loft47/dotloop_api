@@ -9,6 +9,7 @@ module DotloopApi
   class Unauthorized < StandardError; end
   class UnmatchState < StandardError; end
   class UnprocessableEntity < StandardError; end
+
   class CodeMap
     def self.call(code)
       return if code == 200

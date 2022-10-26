@@ -1,8 +1,8 @@
 module DotloopApi
   module EndPoints
     class TaskList < DotloopApi::EndPoints::Base
-      attr_accessor :profile_id
-      attr_accessor :loop_id
+      attr_accessor :profile_id, :loop_id
+
       undef_method :save
       undef_method :create
       undef_method :delete

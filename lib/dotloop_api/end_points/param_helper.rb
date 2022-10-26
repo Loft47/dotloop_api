@@ -59,7 +59,7 @@ module DotloopApi
 
       def filter_pair(key, value)
         return unless FILTER_OPTIONS.include?(key.to_s)
-        key.to_s + '=' + param_value_parser(value)
+        "#{key}=#{param_value_parser(value)}"
       end
 
       def param_value_parser(value)

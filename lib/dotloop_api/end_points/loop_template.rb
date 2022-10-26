@@ -2,6 +2,7 @@ module DotloopApi
   module EndPoints
     class LoopTemplate < DotloopApi::EndPoints::Base
       attr_accessor :profile_id
+
       undef_method :save
       undef_method :create
       undef_method :delete

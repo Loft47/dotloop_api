@@ -9,10 +9,7 @@ module DotloopApi
             attribute :id, Integer
             attribute :name
             attribute :updated, Time
-            attr_accessor :client
-            attr_accessor :profile_id
-            attr_accessor :loop_id
-            attr_accessor :folder_id
+            attr_accessor :client, :profile_id, :loop_id, :folder_id
 
             def download
               DotloopApi::EndPoints::Document.new(

@@ -2,6 +2,7 @@ module DotloopApi
   module EndPoints
     class Loop < DotloopApi::EndPoints::Batch
       attr_accessor :profile_id
+
       undef_method :delete
 
       def initialize(client:, profile_id: nil)

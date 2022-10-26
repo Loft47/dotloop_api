@@ -1,8 +1,8 @@
 module DotloopApi
   module EndPoints
     class Folder < DotloopApi::EndPoints::Base
-      attr_accessor :profile_id
-      attr_accessor :loop_id
+      attr_accessor :profile_id, :loop_id
+
       undef_method :delete
 
       def initialize(client:, profile_id: nil, loop_id: nil)

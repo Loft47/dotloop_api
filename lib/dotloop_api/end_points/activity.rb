@@ -1,8 +1,8 @@
 module DotloopApi
   module EndPoints
     class Activity < DotloopApi::EndPoints::Batch
-      attr_accessor :profile_id
-      attr_accessor :loop_id
+      attr_accessor :profile_id, :loop_id
+
       undef_method :find
       undef_method :save
       undef_method :create

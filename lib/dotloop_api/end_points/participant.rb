@@ -1,8 +1,7 @@
 module DotloopApi
   module EndPoints
     class Participant < DotloopApi::EndPoints::Base
-      attr_accessor :profile_id
-      attr_accessor :loop_id
+      attr_accessor :profile_id, :loop_id
 
       def initialize(client:, profile_id: nil, loop_id: nil)
         @profile_id = profile_id

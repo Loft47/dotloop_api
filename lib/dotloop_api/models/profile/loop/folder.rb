@@ -9,9 +9,7 @@ module DotloopApi
           attribute :created, Time
           attribute :updated, Time
           attribute :documents, Array[DotloopApi::Models::Profile::Loop::Folder::Document]
-          attr_accessor :client
-          attr_accessor :profile_id
-          attr_accessor :loop_id
+          attr_accessor :client, :profile_id, :loop_id
 
           def document_list
             @docuements = DotloopApi::EndPoints::Document.new(

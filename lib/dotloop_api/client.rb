@@ -4,11 +4,7 @@ module DotloopApi
     require 'active_support/all'
     base_uri 'https://api-gateway.dotloop.com/public/v2/'
 
-    attr_accessor :access_token
-    attr_accessor :application
-    attr_accessor :limit
-    attr_accessor :limit_remaining
-    attr_accessor :limit_reset
+    attr_accessor :access_token, :application, :limit, :limit_remaining, :limit_reset
 
     def initialize(access_token:, application: 'dotloop')
       @access_token = access_token

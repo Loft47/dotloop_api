@@ -117,9 +117,7 @@ module DotloopApi
           attribute :property_address, DotloopApi::Models::Profile::Loop::Detail::PropertyAddress
           attribute :property, DotloopApi::Models::Profile::Loop::Detail::Property
           attribute :referral, DotloopApi::Models::Profile::Loop::Detail::Referral
-          attr_accessor :client
-          attr_accessor :profile_id
-          attr_accessor :loop_id
+          attr_accessor :client, :profile_id, :loop_id
 
           def save
             DotloopApi::EndPoints::Detail.new(

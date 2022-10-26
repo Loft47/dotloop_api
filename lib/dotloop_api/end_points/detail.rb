@@ -1,8 +1,8 @@
 module DotloopApi
   module EndPoints
     class Detail < DotloopApi::EndPoints::Base
-      attr_accessor :profile_id
-      attr_accessor :loop_id
+      attr_accessor :profile_id, :loop_id
+
       undef_method :all
       undef_method :create
       undef_method :delete
