@@ -13,7 +13,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.homepage      = %(http://github.com/Loft47/dotloop_api)
   spec.license       = 'MIT'
   spec.cert_chain    = ['certs/gem-public_cert.pem']
-  spec.signing_key   = File.expand_path('~/.ssh/gem-private_key.pem') if $PROGRAM_NAME.end_with?('gem')
+  # spec.signing_key   = File.expand_path('~/.ssh/gem-private_key.pem') if $PROGRAM_NAME.end_with?('gem')
   spec.required_ruby_version = '~> 2.7'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -26,7 +26,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'activesupport', '~> 6'
+  spec.add_runtime_dependency 'activesupport', '~> 7'
   spec.add_runtime_dependency 'httparty', '~> 0.20'
   spec.add_runtime_dependency 'plissken', '~> 2'
   spec.add_runtime_dependency 'virtus', '~> 1.0'
