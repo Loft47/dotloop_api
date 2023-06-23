@@ -26,7 +26,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'activesupport', '~> 6'
+  spec.add_runtime_dependency 'activesupport', '~> 7'
   spec.add_runtime_dependency 'httparty', '~> 0.20'
   spec.add_runtime_dependency 'plissken', '~> 2'
   spec.add_runtime_dependency 'virtus', '~> 1.0'
