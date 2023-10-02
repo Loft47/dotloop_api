@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe DotloopApi::EndPoints::Account do
-  subject { described_class.new(client: client) }
+  subject { described_class.new(client:) }
   let(:client) { double }
   let(:data) { { data: { 'email' => email } } }
   let(:email) { 'test@example.com' }

@@ -7,7 +7,7 @@ module DotloopApi
 
       def initialize(client:, profile_id: nil)
         @profile_id = profile_id
-        super(client: client, path: path, type: DotloopApi::Models::Profile::Loop)
+        super(client:, path:, type: DotloopApi::Models::Profile::Loop)
       end
 
       def path

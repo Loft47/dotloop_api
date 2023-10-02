@@ -3,7 +3,7 @@ module DotloopApi
     class Profile < DotloopApi::EndPoints::Base
       undef_method :delete
       def initialize(client:)
-        super(client: client, path: '/profile', type: DotloopApi::Models::Profile)
+        super(client:, path: '/profile', type: DotloopApi::Models::Profile)
       end
     end
   end

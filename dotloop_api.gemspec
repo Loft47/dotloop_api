@@ -2,7 +2,7 @@ lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'dotloop_api/version'
 
-Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
+Gem::Specification.new do |spec|
   spec.name          = 'dotloop_api'
   spec.version       = DotloopApi::VERSION
   spec.authors       = ['Loft47']
@@ -30,13 +30,5 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.add_runtime_dependency 'httparty', '~> 0.20'
   spec.add_runtime_dependency 'plissken', '~> 2'
   spec.add_runtime_dependency 'virtus', '~> 1.0'
-  spec.add_development_dependency 'bundler', '~> 2'
-  spec.add_development_dependency 'coveralls_reborn', '~> 0.25.0'
-  spec.add_development_dependency 'pry', '~> 0.14'
-  spec.add_development_dependency 'rake', '~> 13'
-  spec.add_development_dependency 'rspec', '~> 3'
-  spec.add_development_dependency 'rubocop', '~> 1'
-  spec.add_development_dependency 'simplecov', '~> 0.21'
-  spec.add_development_dependency 'travis', '~> 1.8'
-  spec.add_development_dependency 'webmock', '~> 3'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end

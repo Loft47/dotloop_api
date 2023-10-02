@@ -4,12 +4,12 @@ describe DotloopApi::Client do
   let(:access_token) { 'cccccccc-4747-7474-b87d-ffffffffffff' }
   let(:end_point) { double('EndPoint') }
   let(:code) { 200 }
-  let(:response) { double(code: code, parsed_response: parsed_response, headers: rheaders) }
+  let(:response) { double(code:, parsed_response:, headers: rheaders) }
   let(:parsed_response) { { some_key: 'some_value' } }
   let(:account) { DotloopApi::Models::Contact.new }
   let(:rheaders) { { 'X-RateLimit-Limit' => 100, 'X-RateLimit-Remaining' => 34, 'X-RateLimit-Reset' => 32_000 } }
 
-  subject { described_class.new(access_token: access_token) }
+  subject { described_class.new(access_token:) }
 
   describe '#initialize' do
     it { expect { described_class.new }.to raise_error(ArgumentError) }
@@ -47,7 +47,7 @@ describe DotloopApi::Client do
       expect(described_class).to receive(:get).with(
         '/endpoint',
         query: {},
-        headers: headers,
+        headers:,
         timeout: 360
       ).and_return(response)
       expect(subject.download('/endpoint')).to eq :binary_string

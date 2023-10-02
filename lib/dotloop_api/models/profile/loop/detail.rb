@@ -121,7 +121,7 @@ module DotloopApi
 
           def save
             DotloopApi::EndPoints::Detail.new(
-              client: client, profile_id: profile_id, loop_id: loop_id
+              client:, profile_id:, loop_id:
             ).save(self)
           end
         end

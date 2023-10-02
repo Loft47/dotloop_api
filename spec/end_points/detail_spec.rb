@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe DotloopApi::EndPoints::Detail do
-  subject { described_class.new(client: client, profile_id: 47, loop_id: 74) }
+  subject { described_class.new(client:, profile_id: 47, loop_id: 74) }
   let(:client) { double('client') }
   let(:result) do
     {

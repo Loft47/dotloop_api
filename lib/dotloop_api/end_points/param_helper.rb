@@ -20,7 +20,7 @@ module DotloopApi
           batch_size: size,
           filter: filter_string,
           include_details: @include_details,
-          sort: sort
+          sort:
         }.delete_if { |_, v| should_delete(v) }
       end
 

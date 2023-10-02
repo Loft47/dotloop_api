@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe DotloopApi::EndPoints::Base do
-  subject { described_class.new(client: client, path: path, type: type) }
+  subject { described_class.new(client:, path:, type:) }
   let(:client) { double('Client') }
   let(:path) { '/tmp' }
   let(:type) { DotloopApi::Models::Contact }

@@ -8,12 +8,12 @@ module DotloopApi
       def initialize(client:, profile_id: nil, loop_id: nil)
         @profile_id = profile_id
         @loop_id = loop_id
-        super(client: client, path: path, type: DotloopApi::Models::Profile::Loop::Folder)
+        super(client:, path:, type: DotloopApi::Models::Profile::Loop::Folder)
       end
 
       def all(options = {})
         options_to_params(options)
-        @client.get(path, @params)[:data].map { |attrs| build_model(attrs) }
+        @client.get(path, **@params)[:data].map { |attrs| build_model(attrs) }
       end
 
       def path

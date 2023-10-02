@@ -13,7 +13,7 @@ module DotloopApi
 
             def download
               DotloopApi::EndPoints::Document.new(
-                client: client, profile_id: profile_id, loop_id: loop_id, folder_id: folder_id
+                client:, profile_id:, loop_id:, folder_id:
               ).download(id: @id)
             end
           end

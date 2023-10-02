@@ -9,7 +9,7 @@ module DotloopApi
         @profile_id = profile_id
         @loop_id = loop_id
         @folder_id = folder_id
-        super(client: client, path: path, type: DotloopApi::Models::Profile::Loop::Folder::Document)
+        super(client:, path:, type: DotloopApi::Models::Profile::Loop::Folder::Document)
       end
 
       def path

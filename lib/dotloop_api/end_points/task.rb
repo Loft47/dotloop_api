@@ -11,7 +11,7 @@ module DotloopApi
         @profile_id = profile_id
         @loop_id = loop_id
         @task_list_id = task_list_id
-        super(client: client, path: path, type: DotloopApi::Models::Profile::Loop::TaskList::Task)
+        super(client:, path:, type: DotloopApi::Models::Profile::Loop::TaskList::Task)
       end
 
       def path

@@ -8,15 +8,15 @@ describe DotloopApi::Auth do
       redirect_uri: 'https://www.google.com'
     )
   end
-  let(:response) { double('Repsonse', code: code, parsed_response: parsed_response) }
+  let(:response) { double('Repsonse', code:, parsed_response:) }
   let(:code) { 200 }
-  let(:parsed_response) { { access_token: new_access_token, refresh_token: refresh_token, expires_in: 50 } }
+  let(:parsed_response) { { access_token: new_access_token, refresh_token:, expires_in: 50 } }
   let(:new_access_token) { access_token }
   let(:access_token) { :access_token }
   let(:refresh_token) { :refresh_token }
 
   let(:authenticated_subject) do
-    subject.config.attributes = { access_token: access_token, refresh_token: refresh_token }
+    subject.config.attributes = { access_token:, refresh_token: }
     subject
   end
 

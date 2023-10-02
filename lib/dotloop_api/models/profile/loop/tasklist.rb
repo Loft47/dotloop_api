@@ -10,7 +10,7 @@ module DotloopApi
 
           def tasks
             DotloopApi::EndPoints::Task.new(
-              client: client, profile_id: profile_id, loop_id: loop_id, task_list_id: id
+              client:, profile_id:, loop_id:, task_list_id: id
             ).all
           end
         end

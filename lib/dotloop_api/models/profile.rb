@@ -3,32 +3,32 @@ module DotloopApi
     class Profile
       # define nested classes first for dependency resolution
       class Loop
-        class Activity; end
+        class Activity; end # rubocop:disable Lint/EmptyClass
 
         class Detail
-          class ContractDates; end
-          class ContractInfo; end
-          class Financials; end
-          class GeographicDescription; end
-          class ListingInformation; end
-          class OfferDates; end
-          class Property; end
-          class PropertyAddress; end
-          class Referral; end
+          class ContractDates; end # rubocop:disable Lint/EmptyClass
+          class ContractInfo; end # rubocop:disable Lint/EmptyClass
+          class Financials; end # rubocop:disable Lint/EmptyClass
+          class GeographicDescription; end # rubocop:disable Lint/EmptyClass
+          class ListingInformation; end # rubocop:disable Lint/EmptyClass
+          class OfferDates; end # rubocop:disable Lint/EmptyClass
+          class Property; end # rubocop:disable Lint/EmptyClass
+          class PropertyAddress; end # rubocop:disable Lint/EmptyClass
+          class Referral; end # rubocop:disable Lint/EmptyClass
         end
 
         class Folder
-          class Document; end
+          class Document; end # rubocop:disable Lint/EmptyClass
         end
 
         class Participant < ::DotloopApi::Models::Contact; end
 
         class TaskList
-          class Task; end
+          class Task; end # rubocop:disable Lint/EmptyClass
         end
       end
 
-      class LoopTemplate; end
+      class LoopTemplate; end # rubocop:disable Lint/EmptyClass
 
       PROFILE_TYPES = %w[ASSOCIATION COMPANY INDIVIDUAL NATIONAL_PARTNER OFFICE TEAM].freeze
       include Virtus.model
@@ -51,17 +51,17 @@ module DotloopApi
       end
 
       def loop(id)
-        loop_endpoint.find(id: id)
+        loop_endpoint.find(id:)
       end
 
       def loop_templates
-        DotloopApi::EndPoints::LoopTemplate.new(client: client, profile_id: id).all
+        DotloopApi::EndPoints::LoopTemplate.new(client:, profile_id: id).all
       end
 
       private
 
       def loop_endpoint
-        DotloopApi::EndPoints::Loop.new(client: client, profile_id: id)
+        DotloopApi::EndPoints::Loop.new(client:, profile_id: id)
       end
     end
   end
