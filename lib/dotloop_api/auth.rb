@@ -84,7 +84,7 @@ module DotloopApi
         redirect_uri: @config.redirect_uri,
         response_type: :code,
         state: @config.state
-      }.delete_if { |_, v| v.nil? }
+      }.compact
     end
 
     def check_state(state)

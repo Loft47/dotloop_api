@@ -24,7 +24,7 @@ module DotloopApi
         attribute :transaction_type
         attribute :updated
         attribute :details, DotloopApi::Models::Profile::Loop::Detail
-        attribute :all_participants, Array[DotloopApi::Models::Profile::Loop::Participant]
+        attribute :all_participants, Array[DotloopApi::Models::Profile::Loop::Participant] # rubocop:disable Style/RedundantArrayConstructor
         attr_accessor :client
 
         def activities

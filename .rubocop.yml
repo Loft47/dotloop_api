@@ -14,14 +14,6 @@ Documentation:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
-Metrics/LineLength:
-  Max: 120
-  Exclude:
-    - 'spec/**/*.rb'
-  AllowURI: true
-  URISchemes:
-    - http
-    - https
 Metrics/MethodLength:
   CountComments: false
   Max: 15
@@ -33,3 +25,11 @@ Style/Alias:
   EnforcedStyle: prefer_alias_method
 Layout/EmptyLineAfterGuardClause:
   Enabled: False
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - 'spec/**/*.rb'
+  AllowURI: true
+  URISchemes:
+    - http
+    - https

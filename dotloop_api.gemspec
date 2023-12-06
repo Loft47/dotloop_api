@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'activesupport', '~> 7'
-  spec.add_runtime_dependency 'httparty', '~> 0.20'
+  spec.add_runtime_dependency 'httparty', '~> 0.21'
   spec.add_runtime_dependency 'plissken', '~> 2'
   spec.add_runtime_dependency 'virtus', '~> 1.0'
   spec.metadata['rubygems_mfa_required'] = 'true'
